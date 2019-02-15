@@ -6,5 +6,5 @@ app = Flask(__name__)
 @app.route('/')
 def index():
    r = requests.get("https://google.com")
-   # s = bs(r,'lxml')
+   s = BeautifulSoup(r,'lxml')
    return "hi there %s" %r.status_code
