@@ -1,6 +1,6 @@
 git add .
 git commit -m "o"
-git push heroku master
-
+X git push heroku master
+git push origin master 
 
 
