@@ -1,8 +1,10 @@
 from flask import Flask
+from bs4 import BeautifulSoup as bs
 import requests
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-   code = requests.get("https://google.com")
-   return "hi %s" %code.status_code
+   r = requests.get("https://google.com")
+   s = bs(r,'lxml')
+   return "hi %s" %r.status_code
