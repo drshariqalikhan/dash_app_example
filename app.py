@@ -19,7 +19,7 @@ def func():
    parse_page()
 
    out = {
-      'val':'done'
+      'scrape':'done'
    }
 
    return jsonify(out)
