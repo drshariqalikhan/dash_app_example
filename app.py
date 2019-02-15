@@ -1,5 +1,5 @@
 from flask import Flask
-# from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup 
 import requests
 app = Flask(__name__)
 
