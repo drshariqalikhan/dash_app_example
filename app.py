@@ -7,4 +7,4 @@ app = Flask(__name__)
 def index():
    r = requests.get("https://google.com")
    s = BeautifulSoup(r.content,'lxml')
-   return "hi there %s" %r.status_code
+   return "hi there bro %s" %r.status_code
