@@ -5,6 +5,7 @@ import os
 import json
 from files.parser import parse_page
 from files.search import searchFor
+from files.rediffapi import getNewsUpdates
 
 
 app = Flask(__name__)
@@ -17,7 +18,8 @@ def index():
 
 @app.route('/a')
 def func():
-   parse_page()
+   # parse_page()
+   getNewsUpdates()
 
    out = {
       'scrape':'done'
@@ -29,7 +31,7 @@ def func():
 @app.route('/b')
 def apifunc():
    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-   json_uri = os.path.join(SITE_ROOT,'files/apidata.json')
+   json_uri = os.path.join(SITE_ROOT,'files/newsdata.json')
    return jsonify(json.load(open(json_uri)))
    # return "hi"
 

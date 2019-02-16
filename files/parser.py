@@ -10,12 +10,14 @@ def parse_page():
     
     while url :
 
-        # print(url)
     
         r= requests.get(url)
+        # print(r.status_code)
+
         s = BeautifulSoup(r.content,features="lxml")
 
-        deals = s.select(".tabs1Content .mh-loop-item")
+        # deals = s.select(".tabs1Content .mh-loop-item")
+        deals = s.select(".tabs1Content .mh-loop-title a")
         #iterate over Blocks
         for deal in deals:
 
@@ -36,9 +38,9 @@ def parse_page():
             #     # print(len(meta))
 
                 #get link
-                deal_data = deal.select('.tabs1Content a')
-                deal_data_url = deal_data[0]['href']
-
+                # deal_data = deal.select('.tabs1Content a')
+                # deal_data_url = deal_data[0]['href']
+                deal_data_url = deal['href']
                 #scrape data from deal_data_url
                 secondr = requests.get(deal_data_url)
                 ss = BeautifulSoup(secondr.content,'lxml')
@@ -55,7 +57,7 @@ def parse_page():
                     'tags':deal_tags
                 }
 
-                # print (data)
+                print (data)
                 res_list.append(data)
                 
                 
@@ -66,7 +68,10 @@ def parse_page():
             url = s.select('.next')[0]['href']
             # print(url)
         else:
-            with open('files/apidata.json','w')as outfile:
+            with open('apidata.json','w')as outfile:
+                
                 json.dump(res_list,outfile)
             break    
             # return res_list
+
+parse_page()
