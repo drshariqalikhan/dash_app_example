@@ -57,7 +57,7 @@ def parse_page():
                     'tags':deal_tags
                 }
 
-                print (data)
+                # print (data)
                 res_list.append(data)
                 
                 
@@ -74,4 +74,4 @@ def parse_page():
             break    
             # return res_list
 
-parse_page()
+# parse_page()
