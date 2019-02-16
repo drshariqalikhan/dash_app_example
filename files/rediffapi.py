@@ -5,7 +5,7 @@ import json
 def getNewsUpdates():
 
     all_article_List =[]
-    url = "https://realtime.rediff.com/getresult/all/influenza%20deaths/0?output=json"
+    url = "https://realtime.rediff.com/getresult/all/influenza/0?output=json"
     r= requests.get(url)
     json_data = json.loads(r.text)
 
