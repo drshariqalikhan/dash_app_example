@@ -66,7 +66,7 @@ def parse_page():
             url = s.select('.next')[0]['href']
             # print(url)
         else:
-            with open('apidata.json','w')as outfile:
+            with open('files/apidata.json','w')as outfile:
                 json.dump(res_list,outfile)
             break    
             # return res_list

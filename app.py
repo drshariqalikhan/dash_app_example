@@ -4,6 +4,7 @@ import requests
 import os
 import json
 from files.parser import parse_page
+from files.search import searchFor
 
 
 app = Flask(__name__)
@@ -28,7 +29,15 @@ def func():
 @app.route('/b')
 def apifunc():
    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-   json_uri = os.path.join(SITE_ROOT,'apidata.json')
+   json_uri = os.path.join(SITE_ROOT,'files/apidata.json')
    return jsonify(json.load(open(json_uri)))
+   # return "hi"
+   
+
+@app.route('/c')
+def apifunc():
+   search_item = request.args.get('q')
+
+   return jsonify(searchFor(search_item))
    # return "hi"
 
