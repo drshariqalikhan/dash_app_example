@@ -32,12 +32,12 @@ def apifunc():
    json_uri = os.path.join(SITE_ROOT,'files/apidata.json')
    return jsonify(json.load(open(json_uri)))
    # return "hi"
-   
+
 
 @app.route('/c')
-def apifunc():
+def searchFunc():
    search_item = request.args.get('q')
-
-   return jsonify(searchFor(search_item))
+   l = searchFor(search_item)
+   return jsonify(l)
    # return "hi"
 

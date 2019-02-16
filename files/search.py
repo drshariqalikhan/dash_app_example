@@ -17,7 +17,7 @@ def searchFor(searchString):
                res_list.append(dict)
      return res_list               
      
-l = searchFor("KFC")
-print(len(l))
+# l = searchFor("KFC")
+# print(len(l))
 # for item in l:
 #      print(item)
