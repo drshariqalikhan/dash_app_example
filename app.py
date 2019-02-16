@@ -1,4 +1,4 @@
-from flask import Flask, request,jsonify
+from flask import Flask, request,jsonify,send_from_directory
 from bs4 import BeautifulSoup 
 import requests
 import os
@@ -42,4 +42,8 @@ def searchFunc():
    l = searchFor(search_item)
    return jsonify(l)
    # return "hi"
+
+@app.route('/d')
+def serveImg():
+   return send_from_directory('files','wk6.png')
 
