@@ -45,10 +45,5 @@ def searchFunc():
 
 @app.route('/d')
 def serveImg():
-   img = send_from_directory('files','wk6.png')
-   data = {
-      'flugraph':img
-   }
-   return jsonify(data)
-   # return send_from_directory('files','wk6.png')
+   return send_from_directory('files','wk6.png')
 
