@@ -6,6 +6,7 @@ import json
 from files.parser import parse_page
 from files.search import searchFor
 from files.rediffapi import getNewsUpdates
+from files.geo import getCity
 
 
 app = Flask(__name__)
@@ -42,6 +43,16 @@ def searchFunc():
    l = searchFor(search_item)
    return jsonify(l)
    # return "hi"
+
+@app.route('/e')
+def locationNews():
+   lat = request.args.get('lat')
+   lon = request.args.get('lon')
+   city = getCity(lat,lon)
+   l = searchFor(city)
+   return jsonify(l)
+   # return "hi"
+
 
 @app.route('/d')
 def serveImg():
