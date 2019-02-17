@@ -10,33 +10,40 @@ def getCity(lat,lon):
 
     if city is None:
         print("search...")
-        lat = lat - 0.5
+        lat = lat - 0.2
         location = geolocator.reverse("%s , %s"%(lat,lon))
         data = location.raw
         city = data.get('address').get('city')
         if city is None:
-            lat = lat + 1.5
+            lat = lat + 0.4
             location = geolocator.reverse("%s , %s"%(lat,lon))
             data = location.raw
             city = data.get('address').get('city')
             if city is None:
                 pass
             else:
-                return city.split(' ')[0]
-                print(city.split(' ')[0])
-                print("front: %s"% city)
+                return splitcity(city)
+                # print(splitcity(city))
+                # print("front: %s"% city)
         else:
-            return city.split(' ')[0]
-            print(city.split(' ')[0])
-            print("back: %s" % city)            
+            return splitcity(city)
+            # print(splitcity(city))
+            # print("back: %s" % city)            
     else:
+        return splitcity(city)
+        # print(splitcity(city))
+        # print("orig: %s" % city)
+
+
+def splitcity(city):
+    if len(city.split(' ')) >  3:
         return city.split(' ')[0]
-        print(city.split(' ')[0])
-        print("orig: %s" % city)
+    else:
+        return city    
 
 
 
 
-print(getCity(26.9,75.7))
+# print(getCity(26.9,75.7))
 
-# getCity(28.64,77.21)
+getCity(26.8,80.9)
