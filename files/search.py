@@ -9,7 +9,7 @@ json_dict_list = json.load(open(json_uri))
 def searchFor(searchString):
      res_list =[]
      for dict in json_dict_list:
-          value = dict.get("title")
+          value = dict.get("descrip")
           searchString = searchString.upper()
           value = value.upper()
           if searchString in value:
