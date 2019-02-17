@@ -45,5 +45,5 @@ def searchFunc():
 
 @app.route('/d')
 def serveImg():
-   return send_from_directory('files','wk6.png')
+   return send_from_directory('files','wk.png')
 

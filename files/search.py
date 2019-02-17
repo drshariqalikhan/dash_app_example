@@ -15,7 +15,12 @@ def searchFor(searchString):
           if searchString in value:
                # print(value)
                res_list.append(dict)
-     return res_list               
+     # return res_list 
+     data = {
+          'near':res_list,
+          'all':json_dict_list
+     }
+     return data              
      
 # l = searchFor("KFC")
 # print(len(l))
