@@ -10,12 +10,12 @@ def getCity(lat,lon):
 
     if city is None:
         print("search...")
-        lat = lat - 0.2
+        lat = str(float(lat) - 0.2)
         location = geolocator.reverse("%s , %s"%(lat,lon))
         data = location.raw
         city = data.get('address').get('city')
         if city is None:
-            lat = lat + 0.4
+            lat = str(float(lat) + 0.4)
             location = geolocator.reverse("%s , %s"%(lat,lon))
             data = location.raw
             city = data.get('address').get('city')
