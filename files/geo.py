@@ -9,7 +9,7 @@ def getCity(lat,lon):
     city = data.get('address').get('city')
 
     if city is None:
-        print("search...")
+        # print("search...")
         lat = str(float(lat) - 0.2)
         location = geolocator.reverse("%s , %s"%(lat,lon))
         data = location.raw
@@ -20,7 +20,7 @@ def getCity(lat,lon):
             data = location.raw
             city = data.get('address').get('city')
             if city is None:
-                pass
+                return "no data"
             else:
                 return splitcity(city)
                 # print(splitcity(city))

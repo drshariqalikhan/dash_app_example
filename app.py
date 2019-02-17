@@ -49,6 +49,7 @@ def locationNews():
    lat = request.args.get('lat')
    lon = request.args.get('lon')
    city = getCity(lat,lon)
+   
    l = searchFor(city)
    return jsonify(l)
    # return "hi"
