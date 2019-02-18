@@ -49,4 +49,4 @@ def getNewsUpdates():
 
 
 
-# getNewsUpdates()
+getNewsUpdates()
