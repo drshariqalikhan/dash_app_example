@@ -7,12 +7,11 @@ def getCity(lat,lon):
     location = geolocator.reverse("%s , %s"%(lat,lon))
     data = location.raw
     city = data.get('address').get('city')
-    city = splitcity(city)
     state = data.get('address').get('state')
     # country = data.get('address').get('city')
     # print(data.get('address'))
     if(city != None):
-
+        city = splitcity(city)
         dat['city'] = city
         
     if(state != None):
