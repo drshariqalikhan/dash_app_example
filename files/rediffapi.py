@@ -75,4 +75,4 @@ def getNewsUpdates():
 
 
 
-getNewsUpdates()
+# getNewsUpdates()
