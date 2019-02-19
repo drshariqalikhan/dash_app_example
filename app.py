@@ -48,9 +48,13 @@ def searchFunc():
 def locationNews():
    lat = request.args.get('lat')
    lon = request.args.get('lon')
-   city = getCity(lat,lon)
-   
-   l = searchFor(city)
+   location_dict = getCity(lat,lon)
+   if location_dict:
+      val = location_dict.get(next(iter(location_dict)))
+   else:
+      val = "nada!"
+   # print("val: %s"%val)   
+   l = searchFor(val)
    return jsonify(l)
    # return "hi"
 
