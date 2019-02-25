@@ -34,7 +34,7 @@ def getNewsUpdates():
                 'source':source,
                 'article_date':article_date
             }
-            # print(data)
+            print(data)
             all_article_List.append(data)
 
         # all_clusters = json_data.get("rediffnews").get("news").get("cluster")
@@ -64,7 +64,7 @@ def getNewsUpdates():
         #             'source':source,
         #             'article_date':article_date
         #         }
-        #         print(data)
+            # print(data)
         #         all_article_List.append(data)
     except:
         pass
@@ -75,4 +75,4 @@ def getNewsUpdates():
 
 
 
-# getNewsUpdates()
+getNewsUpdates()
