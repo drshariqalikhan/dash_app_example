@@ -11,4 +11,4 @@ class FluDb(db.metadata):
         self.news = news
     
     def __repr__(self):
-        return '<news %r>' %self.news
+        return '<FluDb %r>' %self.news
