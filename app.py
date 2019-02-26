@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 import os
 import json
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 # from files.parser import parse_page
 # from files.search import searchFor
 # from files.rediffapi import getNewsUpdates
