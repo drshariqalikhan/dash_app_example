@@ -4,7 +4,7 @@ import requests
 import os
 import json
 from flask_sqlalchemy import SQLAlchemy
-
+from models import User
 
 # from files.parser import parse_page
 # from files.search import searchFor
@@ -30,3 +30,13 @@ def index():
    s = BeautifulSoup(r.content,'lxml')
    return "hi there brother 123 %s" %r.status_code
 
+
+@app.route('/db')
+def dbase():
+   data = User.query.first()
+
+   data = {
+      'email': data.email
+   }
+   
+   return jsonify(data)
