@@ -1,4 +1,4 @@
 from app import db
-from models import FluDb
+from models import User
 
 db.create_all()
