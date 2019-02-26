@@ -46,7 +46,7 @@ def post_user():
     if request.method == 'POST':
         #TODO clear all data in db
         User.query.delete()
-        # u = request.args.get('u')
+        u = request.args.get('u')
         e = request.args.get('e')
         user = User(e)
         db.session.add(user)
