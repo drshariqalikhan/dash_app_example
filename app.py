@@ -4,6 +4,8 @@ import requests
 import os
 import json
 from flask_sqlalchemy import SQLAlchemy
+from flask.ext.heroku import Heroku
+
 # from files.parser import parse_page
 # from files.search import searchFor
 # from files.rediffapi import getNewsUpdates
@@ -13,10 +15,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://oipfsfiayphqsu:b9d7b026fc00203e471d8c9020284a2fd6285516ef8f50230dfef22379a7f374@ec2-50-17-193-83.compute-1.amazonaws.com:5432/d5lvt5aov2s0ou'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://oipfsfiayphqsu:b9d7b026fc00203e471d8c9020284a2fd6285516ef8f50230dfef22379a7f374@ec2-50-17-193-83.compute-1.amazonaws.com:5432/d5lvt5aov2s0ou'
 
 # app.config.from_object(os.environ['APP_SETTINGS'])
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+heroku = Heroku(app)
 db = SQLAlchemy(app)
 
 @app.route('/')
