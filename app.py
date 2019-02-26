@@ -4,7 +4,6 @@ import requests
 import os
 import json
 from flask_sqlalchemy import SQLAlchemy
-from models import User
 
 # from files.parser import parse_page
 # from files.search import searchFor
@@ -18,6 +17,22 @@ DATABASE_DEFAULT = 'postgresql://postgres:14051976@localhost/flaskmovie'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.debug = True
 db = SQLAlchemy(app)
+
+class User(db.Model):
+
+   id = db.Column(db.Integer,primary_key = True)
+   # username = db.Column(db.String(80),unique = True)
+   email = db.Column(db.String(120),unique = True)
+
+   def __init__(self,email):
+      
+      # self.username = username
+      self.email = email
+
+   def __repr__(self):
+      return '<User %r>' %self.username
+
+
 
 @app.route('/')
 def index():
