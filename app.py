@@ -57,7 +57,7 @@ def post_user():
         lis = []
         data = User.query.first()
         data = {
-            # 'username':data.username,
+            'username':data.username,
             'email':data.email
         }
          
