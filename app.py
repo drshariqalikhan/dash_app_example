@@ -31,12 +31,25 @@ def index():
    return "hi there brother 123 %s" %r.status_code
 
 
-@app.route('/db')
-def dbase():
-   data = User.query.first()
+@app.route('/add',methods = ['GET','POST'])
+def post_user():
+    if request.method == 'POST':
+        #TODO clear all data in db
+        User.query.delete()
+        # u = request.args.get('u')
+        e = request.args.get('e')
+        user = User(e)
+        db.session.add(user)
+        db.session.commit()
+        return "done"
+    else:
 
-   data = {
-      'email': data.email
-   }
-   
-   return jsonify(data)
+        lis = []
+        data = User.query.first()
+        data = {
+            # 'username':data.username,
+            'email':data.email
+        }
+         
+        return jsonify(data)
+
