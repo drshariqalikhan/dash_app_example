@@ -92,7 +92,7 @@ def addNews():
       return "news done"
    else:
       data = flunews.query.first()
-      val = json.loads(str(data)) #this is a dictionary
+      val = json.loads(str(data)) #this is a dict
       return jsonify(val) 
 
 
