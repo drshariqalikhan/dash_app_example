@@ -53,7 +53,7 @@ class flunews(db.Model):
       self.newsjson = newsjson
 
    def __repr__(self):
-      # return '%r' %self.newsjson
+      # return '%r' %self.
       return self.newsjson
 
 class fludetail(db.Model):
